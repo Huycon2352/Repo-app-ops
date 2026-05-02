@@ -18,3 +18,7 @@ patches:
 images:
   - name: hgyang25/vote-app
     newTag: v1.0.0
+  - name: hgyang25/result-app
+    newTag: v1.0.0
+  - name: hgyang25/worker-app
+    newTag: v1.0.0

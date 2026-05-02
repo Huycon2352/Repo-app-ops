@@ -3,19 +3,22 @@ kind: Application
 metadata:
   name: voting-prod
   namespace: argocd
+
 spec:
   project: default
 
   source:
     repoURL: https://github.com/hgiang25/k8s-gitops.git
     targetRevision: main
-    path: gitops/overlays/prod
+    path: apps/prod
 
   destination:
     server: https://kubernetes.default.svc
     namespace: prod
 
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    # automated:
+    #   prune: true
+    #   selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
