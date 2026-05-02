@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: dev
+
+resources:
+  - ../../base
+
+images:
+  - name: hgyang25/vote-app
+    newTag: latest
+  - name: hgyang25/result-app
+    newTag: latest
+  - name: hgyang25/worker-app
+    newTag: latest
