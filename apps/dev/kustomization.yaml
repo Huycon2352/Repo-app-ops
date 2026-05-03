@@ -9,10 +9,10 @@ resources:
 images:
 - name: hgyang25/result-app
   newName: hgyang25/result-app
-  newTag: 7fe3d68b58ac4fbf1f7bd462979a9a1cd401e722
+  newTag: 8203081fc993b3f2731a60b15558433173d37b25
 - name: hgyang25/vote-app
   newName: hgyang25/vote-app
-  newTag: 7fe3d68b58ac4fbf1f7bd462979a9a1cd401e722
+  newTag: 8203081fc993b3f2731a60b15558433173d37b25
 - name: hgyang25/worker-app
   newName: hgyang25/worker-app
-  newTag: 7fe3d68b58ac4fbf1f7bd462979a9a1cd401e722
+  newTag: 8203081fc993b3f2731a60b15558433173d37b25
