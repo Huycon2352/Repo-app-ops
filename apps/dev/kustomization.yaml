@@ -8,8 +8,5 @@ resources:
 
 images:
   - name: hgyang25/vote-app
-    newTag: dev
   - name: hgyang25/result-app
-    newTag: dev
   - name: hgyang25/worker-app
-    newTag: dev
