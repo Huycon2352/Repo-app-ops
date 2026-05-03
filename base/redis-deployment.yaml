@@ -18,6 +18,16 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 6379
+          command: ["redis-server"]
+          args:
+            [
+              "--save",
+              "",
+              "--appendonly",
+              "no",
+              "--stop-writes-on-bgsave-error",
+              "no",
+            ]
           volumeMounts:
             - mountPath: /data
               name: redis-data
