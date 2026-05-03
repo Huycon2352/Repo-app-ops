@@ -8,5 +8,8 @@ resources:
 
 images:
   - name: hgyang25/vote-app
+    newTag: latest # sẽ bị CI override
   - name: hgyang25/result-app
+    newTag: latest
   - name: hgyang25/worker-app
+    newTag: latest
