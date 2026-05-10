@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: result
-          image: hgyang25/result-app
+          image: huy951/result-app
           imagePullPolicy: Always
           ports:
             - containerPort: 80
