@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: vote
-          image: hgyang25/vote-app
+          image: huy951/vote-app
           imagePullPolicy: Always
           ports:
             - containerPort: 80
