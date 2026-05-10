@@ -11,7 +11,7 @@ spec:
     repoURL: https://github.com/Huycon2352/Repo-app-ops
     targetRevision: main
     path: apps/prod
-
+#change destication cluiter
   destination:
     server: https://kubernetes.default.svc
     namespace: prod
