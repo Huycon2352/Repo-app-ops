@@ -7,6 +7,15 @@ resources:
 - ../../base
 
 images:
+- name: hgyang25/result-app
+  newName: hgyang25/result-app
+  newTag: f79c8d329a7c30a52ff6bbc76c31636439dd4a61
+- name: hgyang25/vote-app
+  newName: hgyang25/vote-app
+  newTag: f79c8d329a7c30a52ff6bbc76c31636439dd4a61
+- name: hgyang25/worker-app
+  newName: hgyang25/worker-app
+  newTag: f79c8d329a7c30a52ff6bbc76c31636439dd4a61
 - name: huy951/result-app
   newName: huy951/result-app
   newTag: f79c8d329a7c30a52ff6bbc76c31636439dd4a61
