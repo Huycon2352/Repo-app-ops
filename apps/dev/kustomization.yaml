@@ -6,6 +6,17 @@ namespace: dev
 resources:
 - ../../base
 
+patches:
+- path: patch-vote-nodeport.yaml
+  target:
+    kind: Service
+    name: vote
+
+- path: patch-result-nodeport.yaml
+  target:
+    kind: Service
+    name: result
+
 images:
 - name: huy951/result-app
   newName: huy951/result-app
