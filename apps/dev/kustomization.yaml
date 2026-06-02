@@ -9,10 +9,10 @@ resources:
 images:
 - name: huy951/result-app
   newName: huy951/result-app
-  newTag: f69290aa063ea2fa1a80c8d36e7dd5d11ab006d5
+  newTag: 64c295c4e1f371dea7e470c8247cfcde8a4ab125
 - name: huy951/vote-app
   newName: huy951/vote-app
-  newTag: f69290aa063ea2fa1a80c8d36e7dd5d11ab006d5
+  newTag: 64c295c4e1f371dea7e470c8247cfcde8a4ab125
 - name: huy951/worker-app
   newName: huy951/worker-app
-  newTag: f69290aa063ea2fa1a80c8d36e7dd5d11ab006d5
+  newTag: 64c295c4e1f371dea7e470c8247cfcde8a4ab125
