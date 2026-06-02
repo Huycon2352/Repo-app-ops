@@ -17,6 +17,8 @@ patches:
     kind: Service
     name: result
 
+- path: patch-storage.yaml
+    
 images:
 - name: huy951/result-app
   newName: huy951/result-app
