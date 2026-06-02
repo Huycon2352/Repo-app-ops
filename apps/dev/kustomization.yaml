@@ -7,6 +7,7 @@ resources:
 - ../../base
 
 
+
 patches:
 - path: patch-vote-nodeport.yaml
   target:
@@ -16,16 +17,15 @@ patches:
   target:
     kind: Service
     name: result
-
 - path: patch-storage.yaml
     
 images:
 - name: huy951/result-app
   newName: huy951/result-app
-  newTag: 03923d7a8cd54fd2e81b7180a32cde02326076e5
+  newTag: dacb6aef41a4dab78d932a326a83c48c77373a8b
 - name: huy951/vote-app
   newName: huy951/vote-app
-  newTag: 03923d7a8cd54fd2e81b7180a32cde02326076e5
+  newTag: dacb6aef41a4dab78d932a326a83c48c77373a8b
 - name: huy951/worker-app
   newName: huy951/worker-app
-  newTag: 03923d7a8cd54fd2e81b7180a32cde02326076e5
+  newTag: dacb6aef41a4dab78d932a326a83c48c77373a8b
