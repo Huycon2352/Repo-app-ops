@@ -1,24 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: voting-prod
-  namespace: argocd
+# kind: Application
+# metadata:
+#   name: voting-prod
+#   namespace: argocd
 
-spec:
-  project: default
+# spec:
+#   project: default
 
-  source:
-    repoURL: https://github.com/Huycon2352/Repo-app-ops
-    targetRevision: main
-    path: apps/prod
-#change destication cluiter
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: prod
+#   source:
+#     repoURL: https://github.com/Huycon2352/Repo-app-ops
+#     targetRevision: main
+#     path: apps/prod
+# #change destication cluiter
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: prod
 
-  syncPolicy:
-    # automated:
-    #   prune: true
-    #   selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+#   syncPolicy:
+#     # automated:
+#     #   prune: true
+#     #   selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
