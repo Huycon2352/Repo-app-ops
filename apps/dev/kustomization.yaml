@@ -25,7 +25,7 @@ images:
   newTag: 56416617414e28db00ff8d01d9102b4b3d7030d2
 - name: huy951/vote-app
   newName: huy951/vote-app
-  newTag: dacb6aef41a4dab78d932a326a83c48c77373a8b
+  newTag: 0e721a2998b4420786f65cec9915b30722138e79
 - name: huy951/worker-app
   newName: huy951/worker-app
   newTag: dacb6aef41a4dab78d932a326a83c48c77373a8b
