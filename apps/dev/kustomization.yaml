@@ -22,10 +22,10 @@ patches:
 images:
 - name: huy951/result-app
   newName: huy951/result-app
-  newTag: 56416617414e28db00ff8d01d9102b4b3d7030d2
+  newTag: 9d5f8ec12011de8b5fe54b41a0bd6c6378b18f64
 - name: huy951/vote-app
   newName: huy951/vote-app
-  newTag: 0e721a2998b4420786f65cec9915b30722138e79
+  newTag: 9d5f8ec12011de8b5fe54b41a0bd6c6378b18f64
 - name: huy951/worker-app
   newName: huy951/worker-app
-  newTag: 6365c3122daa7f32605dacef1c440d7f3c1db17d
+  newTag: 9d5f8ec12011de8b5fe54b41a0bd6c6378b18f64
