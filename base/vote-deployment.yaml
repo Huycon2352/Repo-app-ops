@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: vote
-          image: huy951/vote-app
+          #image: huy951/vote-app
+          image: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
           imagePullPolicy: Always
           ports:
             - containerPort: 80

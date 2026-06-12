@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: result
-          image: huy951/result-app
+          #image: huy951/result-app
+          image: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
           imagePullPolicy: Always
           ports:
             - containerPort: 80
