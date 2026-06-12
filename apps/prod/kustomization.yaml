@@ -16,9 +16,13 @@ patches:
         value: 3
 
 images:
-  - name: huy951/vote-app
-    newTag: v1.0.0
-  - name: huy951/result-app
-    newTag: v1.0.0
-  - name: huy951/worker-app
-    newTag: v1.0.0
+images:
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
+    newTag: a3a2e38e907d3ad24962301c8d576e813852db41
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
+    newTag: e4f2363dd410dfdeec40dfe77c5d940440fcabae
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
+    newTag: e01bbde0257c659fbfa9fbc25d6699f52a852a88
