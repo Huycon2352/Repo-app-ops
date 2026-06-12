@@ -3,8 +3,7 @@ kind: Application
 metadata:
   name: voting-prod
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+ 
 
 spec:
   project: default
