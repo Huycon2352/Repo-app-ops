@@ -1,31 +1,25 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 namespace: dev
-
 resources:
-- ../../base
-
-
-
+  - ../../base
 patches:
-- path: patch-vote-nodeport.yaml
-  target:
-    kind: Service
-    name: vote
-- path: patch-result-nodeport.yaml
-  target:
-    kind: Service
-    name: result
-- path: patch-storage.yaml
-    
+  - path: patch-vote-nodeport.yaml
+    target:
+      kind: Service
+      name: vote
+  - path: patch-result-nodeport.yaml
+    target:
+      kind: Service
+      name: result
+  - path: patch-storage.yaml
 images:
-- name: huy951/result-app
-  newName: huy951/result-app
-  newTag: 03ccbdbb8d05f216298bcc2a60b1836b0838ea2c
-- name: huy951/vote-app
-  newName: huy951/vote-app
-  newTag: 03ccbdbb8d05f216298bcc2a60b1836b0838ea2c
-- name: huy951/worker-app
-  newName: huy951/worker-app
-  newTag: 03ccbdbb8d05f216298bcc2a60b1836b0838ea2c
+  - name: huy951/result-app
+    newName: huy951/result-app
+    newTag: 03ccbdbb8d05f216298bcc2a60b1836b0838ea2c
+  - name: huy951/vote-app
+    newName: huy951/vote-app
+    newTag: 03ccbdbb8d05f216298bcc2a60b1836b0838ea2c
+  - name: huy951/worker-app
+    newName: huy951/worker-app
+    newTag: 03ccbdbb8d05f216298bcc2a60b1836b0838ea2c
