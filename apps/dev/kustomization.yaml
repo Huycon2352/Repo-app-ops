@@ -1,8 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: dev
+
 resources:
   - ../../base
+
 patches:
   - path: patch-vote-nodeport.yaml
     target:
@@ -13,13 +15,16 @@ patches:
       kind: Service
       name: result
   - path: patch-storage.yaml
+
 images:
-  - name: huy951/result-app
-    newName: huy951/result-app
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newTag: a3a2e38e907d3ad24962301c8d576e813852db41
-  - name: huy951/vote-app
-    newName: huy951/vote-app
+
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
     newTag: e4f2363dd410dfdeec40dfe77c5d940440fcabae
-  - name: huy951/worker-app
-    newName: huy951/worker-app
+
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
     newTag: 03ccbdbb8d05f216298bcc2a60b1836b0838ea2c
