@@ -16,24 +16,24 @@ resources:
   - blue-green/service-vote.yaml
 
 patches:
-  - path: ../dev/patch-imagepullsecret.yaml
+  - path: patch-imagepullsecret.yaml
     target:
       kind: Deployment
 
-  - path: ../dev/patch-db-pvc.yaml
+  - path: patch-db-pvc.yaml
     target:
       kind: PersistentVolumeClaim
       name: db-pvc
 
-  - path: ../dev/patch-redis-pvc.yaml
+  - path: patch-redis-pvc.yaml
     target:
       kind: PersistentVolumeClaim
       name: redis-pvc
-  - path: ../dev/patch-result-nodeport.yaml
+  - path: patch-result-nodeport.yaml
     target:
       kind: Service
       name: result
-      
+
 
   # Wait for patching to change traffic to green
   # - path: blue-green/patch-switch-green.yaml
