@@ -37,10 +37,10 @@ patches:
 
 
   # Wait for patching to change traffic to green
-  - path: blue-green/patch-switch-green.yaml
-    target:
-      kind: Service
-      name: vote
+  # - path: blue-green/patch-switch-green.yaml
+  #   target:
+  #     kind: Service
+  #     name: vote
 
 images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
