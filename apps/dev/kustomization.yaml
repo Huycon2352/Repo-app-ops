@@ -19,7 +19,7 @@ images:
     newTag: 416d53b4f6e5519fc4eee260c023b6723ecd0207
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
-    newTag: 416d53b4f6e5519fc4eee260c023b6723ecd0207
+    newTag: e5bd48f3d1780ef1553419d83ca496dbc7077315
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
     newTag: 416d53b4f6e5519fc4eee260c023b6723ecd0207
