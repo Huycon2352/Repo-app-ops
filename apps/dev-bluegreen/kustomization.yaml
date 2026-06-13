@@ -46,3 +46,11 @@ patches:
   #     kind: Service
   #     name: vote
 
+images:
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
+    newTag: 8dc5abca6dc4cd01a4a88fe08c7edc018fffbc51
+
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
+    newTag: 9eaf7a1b4ea494c32dfb467f90aab6379fdb7f79
