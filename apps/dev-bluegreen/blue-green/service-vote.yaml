@@ -4,6 +4,7 @@ metadata:
   name: vote
 
 spec:
+  # Change NLB if pord
   type: NodePort
 
   selector:
