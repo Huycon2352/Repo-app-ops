@@ -18,7 +18,6 @@ patches:
     target:
       kind: PersistentVolumeClaim
       name: redis-pvc
-
   - path: patch-db-pvc.yaml
     target:
       kind: PersistentVolumeClaim
@@ -32,21 +31,18 @@ patches:
     target:
       kind: Deployment
       name: worker
-
   - path: patch-rollout-vote.yaml
     target:
       kind: Deployment
       name: vote
-
   - path: patch-rollout-result.yaml
     target:
       kind: Deployment
       name: result
-
 images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
-    newTag: fcb4897316b524d420de45afa294b27f5ef5f237
+    newTag: 8dc5abca6dc4cd01a4a88fe08c7edc018fffbc51
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
     newTag: e5bd48f3d1780ef1553419d83ca496dbc7077315
