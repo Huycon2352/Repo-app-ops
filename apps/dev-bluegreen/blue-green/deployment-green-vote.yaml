@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: vote
-          image: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote:NEW_TAG
+          image: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote:latest
           imagePullPolicy: Always
 
           ports:

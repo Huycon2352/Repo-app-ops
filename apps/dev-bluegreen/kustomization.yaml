@@ -4,19 +4,16 @@ kind: Kustomization
 namespace: dev
 
 resources:
-  # Base
   - ../../base/storageclass
   - ../../base/db
   - ../../base/redis
   - ../../base/result
   - ../../base/worker
 
-  # Vote blue-green deployment
   - blue-green/deployment-blue-vote.yaml
   - blue-green/deployment-green-vote.yaml
 
-  # override service blue-green
-  - blue-green/service-blue.yaml
+  - blue-green/service-vote.yaml
 
 patches:
   - path: ../dev/patch-imagepullsecret.yaml
@@ -42,3 +39,10 @@ patches:
     target:
       kind: Deployment
       name: worker
+
+  # Wait for patching to change traffic to green
+  # - path: blue-green/patch-switch-green.yaml
+  #   target:
+  #     kind: Service
+  #     name: vote
+

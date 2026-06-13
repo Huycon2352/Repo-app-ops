@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: vote
-          image: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
+          image: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote:e5bd48f3d1780ef1553419d83ca496dbc7077315
           imagePullPolicy: Always
 
           ports:
