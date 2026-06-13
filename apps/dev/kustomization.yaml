@@ -1,62 +1,51 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 namespace: dev
-
 resources:
   - ../../base
-
 patches:
   # Patch Service
   - path: patch-vote-nodeport.yaml
     target:
       kind: Service
       name: vote
-
   - path: patch-result-nodeport.yaml
     target:
       kind: Service
       name: result
-
   # Patch PersistentVolumeClaim
   - path: patch-redis-pvc.yaml
     target:
       kind: PersistentVolumeClaim
       name: redis-pvc
-
   - path: patch-db-pvc.yaml
     target:
       kind: PersistentVolumeClaim
       name: db-pvc
-
   # Patch ImagePullSecret
   - path: patch-imagepullsecret.yaml
     target:
       kind: Deployment
-
   # Patch Rolling Update
   - path: roll-out/patch-rollout-worker.yaml
     target:
       kind: Deployment
       name: worker
-
   - path: roll-out/patch-rollout-vote.yaml
     target:
       kind: Deployment
       name: vote
-
   - path: roll-out/patch-rollout-result.yaml
     target:
       kind: Deployment
       name: result
-
 images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newTag: 8dc5abca6dc4cd01a4a88fe08c7edc018fffbc51
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
-    newTag: e5bd48f3d1780ef1553419d83ca496dbc7077315
+    newTag: 1166d94d68106ba44bdea7f113b0e2be642586d5
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
     newTag: 9eaf7a1b4ea494c32dfb467f90aab6379fdb7f79
