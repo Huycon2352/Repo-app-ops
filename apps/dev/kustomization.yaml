@@ -42,7 +42,7 @@ patches:
 images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
-    newTag: 8dc5abca6dc4cd01a4a88fe08c7edc018fffbc51
+    newTag: 5f4193c7fd3ba004d2563d447fd701b8f442562e
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
     newTag: e5bd48f3d1780ef1553419d83ca496dbc7077315
