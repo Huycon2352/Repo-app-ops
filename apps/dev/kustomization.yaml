@@ -22,4 +22,4 @@ images:
     newTag: a1df630fcc2234f2820b6c19c5fcda54ac6e5964
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
-    newTag: e01bbde0257c659fbfa9fbc25d6699f52a852a88
+    newTag: 416d53b4f6e5519fc4eee260c023b6723ecd0207
