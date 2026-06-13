@@ -29,16 +29,11 @@ patches:
     target:
       kind: PersistentVolumeClaim
       name: redis-pvc
-
-  - path: ../dev/roll-out/patch-rollout-result.yaml
+  - path: ../dev/patch-result-nodeport.yaml
     target:
-      kind: Deployment
+      kind: Service
       name: result
-
-  - path: ../dev/roll-out/patch-rollout-worker.yaml
-    target:
-      kind: Deployment
-      name: worker
+      
 
   # Wait for patching to change traffic to green
   # - path: blue-green/patch-switch-green.yaml
