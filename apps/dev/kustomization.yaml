@@ -1,44 +1,55 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
 namespace: dev
+
 resources:
   - ../../base
+
 patches:
-  #Patch for Service
+  # Patch Service
   - path: patch-vote-nodeport.yaml
     target:
       kind: Service
       name: vote
+
   - path: patch-result-nodeport.yaml
     target:
       kind: Service
       name: result
-  #Patch for PersistentVolumeClaim ( env -dev )
+
+  # Patch PersistentVolumeClaim
   - path: patch-redis-pvc.yaml
     target:
       kind: PersistentVolumeClaim
       name: redis-pvc
+
   - path: patch-db-pvc.yaml
     target:
       kind: PersistentVolumeClaim
       name: db-pvc
-  #Patch secret for Deployment pull image
+
+  # Patch ImagePullSecret
   - path: patch-imagepullsecret.yaml
     target:
       kind: Deployment
-  #Patch for Deployment rollout strategy
-  - path: patch-rollout-worker.yaml
+
+  # Patch Rolling Update
+  - path: roll-out/patch-rollout-worker.yaml
     target:
       kind: Deployment
       name: worker
-  - path: patch-rollout-vote.yaml
+
+  - path: roll-out/patch-rollout-vote.yaml
     target:
       kind: Deployment
       name: vote
-  - path: patch-rollout-result.yaml
+
+  - path: roll-out/patch-rollout-result.yaml
     target:
       kind: Deployment
       name: result
+
 images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result

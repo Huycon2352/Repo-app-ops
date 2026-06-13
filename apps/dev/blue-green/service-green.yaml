@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vote
+
+spec:
+  type: LoadBalancer
+
+  selector:
+    app: vote
+    version: green
+
+  ports:
+    - port: 80
+      targetPort: 80
+    
