@@ -14,7 +14,15 @@ patches:
       kind: Service
       name: result
   #Patch for PersistentVolumeClaim ( env -dev )
-  - path: patch-storage.yaml
+  - path: patch-redis-pvc.yaml
+    target:
+      kind: PersistentVolumeClaim
+      name: redis-pvc
+
+  - path: patch-db-pvc.yaml
+    target:
+      kind: PersistentVolumeClaim
+      name: db-pvc
   #Patch secret for Deployment pull image
   - path: patch-imagepullsecret.yaml
     target:
