@@ -1,0 +1,44 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: dev
+
+resources:
+  # Base
+  - ../../base/storageclass
+  - ../../base/db
+  - ../../base/redis
+  - ../../base/result
+  - ../../base/worker
+
+  # Vote blue-green deployment
+  - blue-green/deployment-blue-vote.yaml
+  - blue-green/deployment-green-vote.yaml
+
+  # override service blue-green
+  - blue-green/service-blue.yaml
+
+patches:
+  - path: ../dev/patch-imagepullsecret.yaml
+    target:
+      kind: Deployment
+
+  - path: ../dev/patch-db-pvc.yaml
+    target:
+      kind: PersistentVolumeClaim
+      name: db-pvc
+
+  - path: ../dev/patch-redis-pvc.yaml
+    target:
+      kind: PersistentVolumeClaim
+      name: redis-pvc
+
+  - path: ../dev/roll-out/patch-rollout-result.yaml
+    target:
+      kind: Deployment
+      name: result
+
+  - path: ../dev/roll-out/patch-rollout-worker.yaml
+    target:
+      kind: Deployment
+      name: worker
