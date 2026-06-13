@@ -4,6 +4,7 @@ namespace: dev
 resources:
   - ../../base
 patches:
+  #Patch for Service
   - path: patch-vote-nodeport.yaml
     target:
       kind: Service
@@ -12,11 +13,28 @@ patches:
     target:
       kind: Service
       name: result
+  #Patch for PersistentVolumeClaim ( env -dev )
   - path: patch-storage.yaml
-
+  #Patch secret for Deployment pull image
   - path: patch-imagepullsecret.yaml
     target:
       kind: Deployment
+  #Patch for Deployment rollout strategy
+  - path: patch-rollout-worker.yaml
+    target:
+      kind: Deployment
+      name: worker
+
+  - path: patch-rollout-vote.yaml
+    target:
+      kind: Deployment
+      name: vote
+
+  - path: patch-rollout-result.yaml
+    target:
+      kind: Deployment
+      name: result
+
 images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
