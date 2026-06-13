@@ -5,7 +5,7 @@ metadata:
 
 spec:
   # Change NLB if pord
-  type: NodePort
+  type: LoadBalancer
 
   selector:
     app: vote
