@@ -4,7 +4,7 @@ metadata:
   name: vote
 
 spec:
-  type: LoadBalancer
+  type: NodePort
 
   selector:
     app: vote
