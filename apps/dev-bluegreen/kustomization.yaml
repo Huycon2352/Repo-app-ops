@@ -20,15 +20,16 @@ patches:
     target:
       kind: Deployment
 
-  - path: patch-db-pvc.yaml
-    target:
-      kind: PersistentVolumeClaim
-      name: db-pvc
+# Undo if deploy on dev but with loco 
+  # - path: patch-db-pvc.yaml
+  #   target:
+  #     kind: PersistentVolumeClaim
+  #     name: db-pvc
 
-  - path: patch-redis-pvc.yaml
-    target:
-      kind: PersistentVolumeClaim
-      name: redis-pvc
+  # - path: patch-redis-pvc.yaml
+  #   target:
+  #     kind: PersistentVolumeClaim
+  #     name: redis-pvc
   - path: patch-result-nodeport.yaml
     target:
       kind: Service
