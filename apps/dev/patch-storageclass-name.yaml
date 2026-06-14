@@ -1,4 +1,4 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: gp3 # change if need
+  name: gp3-dev # change if need
