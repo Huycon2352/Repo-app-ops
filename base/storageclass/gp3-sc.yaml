@@ -4,6 +4,7 @@ metadata:
   name: gp3
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
 provisioner: ebs.csi.aws.com
 volumeBindingMode: WaitForFirstConsumer
 parameters:
