@@ -43,10 +43,10 @@ patches:
 images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
-    newTag: latest
+    newTag: dev-latest
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
-    newTag: latest
+    newTag: dev-latest
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
-    newTag: latest
+    newTag: dev-latest
