@@ -2,54 +2,53 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: dev
 resources:
-- ../../base
-  # Patch Service
-  # Patch PersistentVolumeClaim
-  # Patch ImagePullSecret
-  # Patch Rolling Update
+  - ../../base
+# Patch Service
+# Patch PersistentVolumeClaim
+# Patch ImagePullSecret
+# Patch Rolling Update
 patches:
-- path: patch-vote-nodeport.yaml
-  target:
-    kind: Service
-    name: vote
-- path: patch-result-nodeport.yaml
-  target:
-    kind: Service
-    name: result
-# - path: patch-redis-pvc.yaml
-#   target:
-#     kind: PersistentVolumeClaim
-#     name: redis-pvc
-# - path: patch-db-pvc.yaml
-#   target:
-#     kind: PersistentVolumeClaim
-#     name: db-pvc
-# - path: patch-imagepullsecret.yaml
-#   target:
-#     kind: Deployment
-- path: roll-out/patch-rollout-worker.yaml
-  target:
-    kind: Deployment
-    name: worker
-- path: roll-out/patch-rollout-vote.yaml
-  target:
-    kind: Deployment
-    name: vote
-- path: roll-out/patch-rollout-result.yaml
-  target:
-    kind: Deployment
-    name: result
-
+  - path: patch-vote-nodeport.yaml
+    target:
+      kind: Service
+      name: vote
+  - path: patch-result-nodeport.yaml
+    target:
+      kind: Service
+      name: result
+  # - path: patch-redis-pvc.yaml
+  #   target:
+  #     kind: PersistentVolumeClaim
+  #     name: redis-pvc
+  # - path: patch-db-pvc.yaml
+  #   target:
+  #     kind: PersistentVolumeClaim
+  #     name: db-pvc
+  # - path: patch-imagepullsecret.yaml
+  #   target:
+  #     kind: Deployment
+  - path: roll-out/patch-rollout-worker.yaml
+    target:
+      kind: Deployment
+      name: worker
+  - path: roll-out/patch-rollout-vote.yaml
+    target:
+      kind: Deployment
+      name: vote
+  - path: roll-out/patch-rollout-result.yaml
+    target:
+      kind: Deployment
+      name: result
 images:
-- name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
-  newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
-  newTag: dev-latest
-- name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
-  newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
-  newTag: 1244531c8de4606c6846321f544daafdd708fcf9
-- name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
-  newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
-  newTag: dev-latest
-- name: huy951/vote-app
-  newName: huy951/vote-app
-  newTag: 9c597f8a1b498d3ca834d79397087f6be2d08ff8
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
+    newTag: dev-latest
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
+    newTag: 61b8dabb387261c13e45a6110311d10c1a91a873
+  - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
+    newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
+    newTag: dev-latest
+  - name: huy951/vote-app
+    newName: huy951/vote-app
+    newTag: 61b8dabb387261c13e45a6110311d10c1a91a873
