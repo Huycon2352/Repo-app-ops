@@ -1,4 +1,6 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: gp3-prod # change if need
+  name: gp3
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
