@@ -39,13 +39,14 @@ patches:
     target:
       kind: Deployment
       name: result
+
 images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
-    newTag: 8dc5abca6dc4cd01a4a88fe08c7edc018fffbc51
+    newTag: a3a2e38e907d3ad24962301c8d576e813852db41
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
-    newTag: 1166d94d68106ba44bdea7f113b0e2be642586d5
+    newTag: e4f2363dd410dfdeec40dfe77c5d940440fcabae
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
-    newTag: 9eaf7a1b4ea494c32dfb467f90aab6379fdb7f79
+    newTag: e01bbde0257c659fbfa9fbc25d6699f52a852a88
