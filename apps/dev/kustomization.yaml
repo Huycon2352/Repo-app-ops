@@ -39,6 +39,10 @@ patches:
   target:
     kind: Deployment
     name: result
+- path: patch-storageclass-name.yaml
+  target:
+    kind: StorageClass
+    name: gp3-dev # change if need
 images:
 - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
   newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
