@@ -4,7 +4,11 @@ kind: Kustomization
 namespace: prod
 
 resources:
-  - ../../base
+  - ../../db
+  - ../../redis
+  - ../../result
+  - ../../worker
+  - ../../vote
 
 patches:
   - target:
@@ -26,7 +30,10 @@ patches:
     target:
       kind: Deployment
       name: result
-
+  - path: patch-storageclass-name.yaml
+    target:
+      kind: StorageClass
+      name: gp3-prod 
 images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
