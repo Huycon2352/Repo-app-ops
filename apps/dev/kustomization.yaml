@@ -16,17 +16,17 @@ patches:
   target:
     kind: Service
     name: result
-- path: patch-redis-pvc.yaml
-  target:
-    kind: PersistentVolumeClaim
-    name: redis-pvc
-- path: patch-db-pvc.yaml
-  target:
-    kind: PersistentVolumeClaim
-    name: db-pvc
-- path: patch-imagepullsecret.yaml
-  target:
-    kind: Deployment
+# - path: patch-redis-pvc.yaml
+#   target:
+#     kind: PersistentVolumeClaim
+#     name: redis-pvc
+# - path: patch-db-pvc.yaml
+#   target:
+#     kind: PersistentVolumeClaim
+#     name: db-pvc
+# - path: patch-imagepullsecret.yaml
+#   target:
+#     kind: Deployment
 - path: roll-out/patch-rollout-worker.yaml
   target:
     kind: Deployment
