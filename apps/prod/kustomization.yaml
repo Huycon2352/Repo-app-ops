@@ -4,11 +4,11 @@ kind: Kustomization
 namespace: prod
 
 resources:
-  - ../../db
-  - ../../redis
-  - ../../result
-  - ../../worker
-  - ../../vote
+  - ../../base/db
+  - ../../base/redis
+  - ../../base/result
+  - ../../base/worker
+  - ../../base/vote
 
 patches:
   - target:
