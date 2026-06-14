@@ -16,7 +16,6 @@ patches:
         value: 3
 
 images:
-images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newTag: a3a2e38e907d3ad24962301c8d576e813852db41
