@@ -1,15 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 namespace: prod
-
 resources:
   - ../../base/db
   - ../../base/redis
   - ../../base/result
   - ../../base/worker
   - ../../base/vote
-
 patches:
   - target:
       kind: Deployment
@@ -33,21 +30,14 @@ patches:
   - path: patch-storageclass-name.yaml
     target:
       kind: StorageClass
-      name: gp3-prod 
-
-
-
-
-
-
-      
+      name: gp3-prod
 images:
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/result
     newTag: a3a2e38e907d3ad24962301c8d576e813852db41
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/vote
-    newTag: e4f2363dd410dfdeec40dfe77c5d940440fcabae
+    newTag: 8d267203036fb3395b75ebdbb8931c583529411d
   - name: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
     newName: 248195880649.dkr.ecr.ap-southeast-1.amazonaws.com/worker
     newTag: e01bbde0257c659fbfa9fbc25d6699f52a852a88
