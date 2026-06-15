@@ -1,0 +1,18 @@
+customRules:
+  custom_rules.yaml: |
+    - rule: Terminal shell in container
+      desc: Detect shell inside container
+      condition: >
+        spawned_process
+        and container
+        and shell_procs
+      output: >
+        Shell opened cmd=%proc.cmdline pod=%k8s.pod.name
+      priority: WARNING
+
+falcosidekick:
+  enabled: true
+
+falco:
+  json_output: true
+  json_include_output_property: true

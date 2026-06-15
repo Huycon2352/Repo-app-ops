@@ -1,0 +1,110 @@
+# Chạy chế độ đơn giản nhất, không cần cài microservices phức tạp
+deploymentMode: SingleBinary
+
+# Cấu hình lưu trữ Log ngay trên ổ cứng của Node
+loki:
+  auth_enabled: false
+  commonConfig:
+    replication_factor: 1
+  storage:
+    type: filesystem
+  
+  # Cấu hình schema phù hợp với cấu trúc mới
+  schemaConfig:
+    configs:
+      - from: "2024-01-01"
+        store: tsdb
+        object_store: filesystem
+        schema: v13
+        index:
+          prefix: index_
+          period: 24h
+
+# Sử dụng ổ cứng local 10Gi để lưu log cho chế độ SingleBinary
+singleBinary:
+  replicas: 1
+  persistence:
+    enabled: true
+    size: 10Gi
+
+# Ép các thành phần của chế độ SimpleScalable về 0 để tránh lỗi validate
+read:
+  replicas: 0
+write:
+  replicas: 0
+backend:
+  replicas: 0
+
+# CẤU HÌNH ĐÃ ĐƯỢC FIX LẠI ĐỂ BÓC TÁCH NHÃN CONTAINER/NAMESPACE
+promtail:
+  enabled: true
+  rbac:
+    create: true
+  podSecurityContext:
+    runAsUser: 0
+    runAsGroup: 0
+  containerSecurityContext:
+    privileged: true
+
+  # Cấu hình pipeline để bóc tách thông tin từ đường dẫn log thô của Kubernetes
+  config:
+    logLevel: info
+    server:
+      http_listen_port: 3101
+    
+    # Định nghĩa cách quét và gán nhãn cho Log
+    snippets:
+      extraScrapeConfigs: |
+        - job_name: kubernetes-pods
+          kubernetes_sd_configs:
+            - role: pod
+          relabel_configs:
+            - source_labels: [__meta_kubernetes_namespace]
+              target_label: namespace
+            - source_labels: [__meta_kubernetes_pod_name]
+              target_label: pod
+            - source_labels: [__meta_kubernetes_pod_container_name]
+              target_label: container
+            - source_labels: [__meta_kubernetes_pod_label_app]
+              target_label: app
+            - source_labels: [__meta_kubernetes_pod_label_app]
+              target_label: service
+            - replacement: /var/log/pods/*$1/*.log
+              separator: /
+              source_labels: [__meta_kubernetes_pod_uid, __meta_kubernetes_pod_container_name]
+              target_label: __path__
+
+# Tắt các thành phần trùng lặp với kube-prometheus-stack
+gateway:
+  enabled: false
+monitoring:
+  dashboards:
+    enabled: false
+  rules:
+    enabled: false
+  serviceMonitor:
+    enabled: false
+
+# Cấu hình đè cho cục Chunks Cache (Memcached) - Chính là cục đang bị Pending
+memcachedChunksCache:
+  enabled: true
+  allocatedMemory: 128     # Giảm từ 8192MB xuống còn 128MB bên trong Memcached
+  resources:
+    requests:
+      cpu: 50m
+      memory: 150Mi        # Giảm từ ~10GB xuống còn 150MB RAM Request
+    limits:
+      cpu: 200m
+      memory: 300Mi
+
+# Cấu hình đè cho cục Results Cache (Memcached) - Tiện tay bóp nhỏ luôn để tiết kiệm tài nguyên Node
+memcachedResultsCache:
+  enabled: true
+  allocatedMemory: 128
+  resources:
+    requests:
+      cpu: 50m
+      memory: 150Mi
+    limits:
+      cpu: 200m
+      memory: 300Mi

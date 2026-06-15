@@ -1,0 +1,15 @@
+policyReporter:
+  # Cấu hình UI nếu bạn muốn xem giao diện Web của Policy Reporter (Tùy chọn, tắt đi cho nhẹ RAM)
+  ui:
+    enabled: false
+
+  # CẤU HÌNH BẮN DISCORD CHUẨN CHỈNH
+  channels:
+    - name: "discord-alerts"
+      type: discord
+      # Dán chính xác link Webhook Discord của bạn vào đây
+      webhook: "https://discord.com/api/webhooks/1515414420992561334/mNdYkGh65Kc-h3HbuMeuRtjYE1caEBcff0sYEeW-90Kbeb-oWGHmB5P9cJ2_L1b17fhv"
+      minimumPriority: "warning"
+ 
+global:
+  watchNamespace: "" # Quét toàn bộ cluster một cách chủ động
