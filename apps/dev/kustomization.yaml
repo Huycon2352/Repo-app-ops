@@ -24,9 +24,9 @@ patches:
   #   target:
   #     kind: PersistentVolumeClaim
   #     name: db-pvc
-  # - path: patch-imagepullsecret.yaml
-  #   target:
-  #     kind: Deployment
+  - path: patch-imagepullsecret.yaml
+    target:
+      kind: Deployment
   - path: roll-out/patch-rollout-worker.yaml
     target:
       kind: Deployment
