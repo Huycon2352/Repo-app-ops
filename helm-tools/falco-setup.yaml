@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#helm upgrade --install falco falcosecurity/falco \
+#  -n falco \
+#  -f values.yaml
+  
+  
+  #helm upgrade --install falco falcosecurity/falco \
+  #--namespace falco \
+  #--reuse-values \
+  #--createnamespace \
+  #--set falcosidekick.enabled=true \
+  #--set falcosidekick.config.discord.webhookurl="https://discord.com/api/webhooks/1515414420992561334/mNdYkGh65Kc-h3HbuMeuRtjYE1caEBcff0sYEeW-90Kbeb-oWGHmB5P9cJ2_L1b17fhv" \
+  #--set falcosidekick.config.discord.minimumpriority="notice"
+  
+
+
+#helm upgrade --install falco falcosecurity/falco \
+  #--namespace falco \
+  #--reuse-values \
+  #--set falcosidekick.enabled=true \
+  #--set falcosidekick.config.discord.webhookurl="https://discord.com/api/webhooks/1515414420992561334/mNdYkGh65Kc-h3HbuMeuRtjYE1caEBcff0sYEeW-90Kbeb-oWGHmB5P9cJ2_L1b17fhv" \
+  #--set falcosidekick.config.discord.minimumpriority="warning"
+  
+  #!/bin/bash
+
+# Khai báo Webhook URL thông qua biến môi trường để an toàn hơn
+DISCORD_WEBHOOK="https://discord.com/api/webhooks/1515414420992561334/mNdYkGh65Kc-h3HbuMeuRtjYE1caEBcff0sYEeW-90Kbeb-oWGHmB5P9cJ2_L1b17fhv"
+
+helm upgrade --install falco falcosecurity/falco \
+  --namespace falco \
+  --create-namespace \
+  --reuse-values \
+  --set falcosidekick.enabled=true \
+  --set falcosidekick.config.discord.webhookurl="$DISCORD_WEBHOOK" \
+  --set falcosidekick.config.discord.minimumpriority="notice"
+

@@ -1,0 +1,7 @@
+#!/bin/bash
+# Thêm repo của riêng Policy Reporter
+helm repo add policy-reporter https://kyverno.github.io/policy-reporter
+helm repo update
+
+# Cài đặt nó vào chung namespace với Kyverno
+helm install policy-reporter policy-reporter/policy-reporter -n kyverno -f policy-reporter-values.yaml

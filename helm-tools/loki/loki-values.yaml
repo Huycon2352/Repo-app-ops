@@ -1,0 +1,58 @@
+# Chạy chế độ đơn giản nhất, không cần cài microservices phức tạp
+deploymentMode: SingleBinary
+
+# Cấu hình lưu trữ Log ngay trên ổ cứng của Node
+loki:
+  auth_enabled: false
+  commonConfig:
+    replication_factor: 1
+  storage:
+    type: filesystem
+  
+  # Cấu hình schema phù hợp với cấu trúc mới
+  schemaConfig:
+    configs:
+      - from: "2024-01-01"
+        store: tsdb
+        object_store: filesystem
+        schema: v13
+        index:
+          prefix: index_
+          period: 24h
+
+# Sử dụng ổ cứng local 10Gi để lưu log cho chế độ SingleBinary
+singleBinary:
+  replicas: 1
+  persistence:
+    enabled: true
+    size: 10Gi
+
+# Ép các thành phần của chế độ SimpleScalable về 0 để tránh lỗi validate
+read:
+  replicas: 0
+write:
+  replicas: 0
+backend:
+  replicas: 0
+
+# Tự động cài đặt Promtail (Agent gom log) thế hệ mới đi kèm
+promtail:
+  enabled: true
+  rbac:
+    create: true
+  podSecurityContext:
+    runAsUser: 0
+    runAsGroup: 0
+  containerSecurityContext:
+    privileged: true
+
+# Tắt các thành phần trùng lặp với kube-prometheus-stack
+gateway:
+  enabled: false
+monitoring:
+  dashboards:
+    enabled: false
+  rules:
+    enabled: false
+  serviceMonitor:
+    enabled: false
