@@ -401,3 +401,102 @@ Kubernetes Cluster
 ---
 **Repository:** `Repo-app-ops`  
 **Mục đích:** Quản lý cấu hình Kubernetes và hạ tầng theo mô hình GitOps phục vụ triển khai và vận hành ứng dụng trên Kubernetes Cluster.
+
+
+## 🚀 Pattern Deployment Model (Development to Production)
+
+Repository này được xây dựng theo mô hình **GitOps kết hợp Kustomize Overlay**, cho phép quản lý cấu hình theo từng môi trường và triển khai nhanh chóng thông qua ArgoCD.
+
+Luồng triển khai hiện tại:
+
+```text
+Developer
+      │
+      ▼
+ Git Repository
+      │
+      ▼
+ Kustomize Overlay
+(dev / prod / prod-bluegreen)
+      │
+      ▼
+    ArgoCD
+      │
+      ▼
+ Kubernetes Cluster
+```
+
+Mô hình này giúp:
+
+* Tái sử dụng manifest Kubernetes thông qua `base/`.
+* Tách biệt cấu hình theo từng môi trường bằng `overlay`.
+* Tự động đồng bộ khi có thay đổi trên Git.
+* Giảm thao tác thủ công trong quá trình triển khai.
+* Hỗ trợ triển khai nhanh và dễ dàng mở rộng.
+
+---
+
+## ⚠️ Hạn chế
+
+Repository hiện tại được thiết kế chủ yếu nhằm phục vụ **mục đích học tập, nghiên cứu và tích hợp kiểm thử (CI/CD & GitOps)**. Mặc dù đáp ứng tốt việc triển khai nhiều môi trường, mô hình này vẫn chưa phản ánh đầy đủ quy trình phát triển và phát hành phần mềm trong doanh nghiệp.
+
+Một số hạn chế bao gồm:
+
+* Chưa áp dụng chiến lược quản lý source code theo mô hình **Feature Branch Workflow** hoặc **GitFlow**.
+* Chưa có quy trình phát hành (Release Management) rõ ràng giữa các phiên bản.
+* Việc triển khai từ môi trường Development lên Production chưa thông qua đầy đủ các bước kiểm thử và phê duyệt.
+* Chưa tích hợp quy trình Promotion giữa các môi trường (Dev → Staging → Production).
+
+---
+
+## 🏢 Quy trình triển khai chuẩn trong doanh nghiệp
+
+Trong môi trường doanh nghiệp, quy trình phát triển và triển khai thường được tổ chức theo mô hình sau:
+
+### Branch Strategy
+
+```text
+feature/*
+      │
+      ▼
+develop
+      │
+      ▼
+release/v1.x.x
+      │
+      ▼
+main
+```
+
+Trong đó:
+
+* **feature/**: Phát triển từng chức năng độc lập.
+* **develop**: Tích hợp và kiểm thử các tính năng mới.
+* **release/**: Chuẩn bị phát hành, kiểm thử cuối cùng và sửa lỗi.
+* **main**: Phiên bản ổn định được triển khai lên môi trường Production.
+
+---
+
+### Environment Promotion
+
+```text
+Development
+      │
+      ▼
+Staging / UAT
+      │
+      ▼
+Production
+```
+
+* **Development**: Môi trường dành cho lập trình viên phát triển và kiểm thử ban đầu.
+* **Staging/UAT**: Môi trường mô phỏng Production để thực hiện kiểm thử tích hợp, kiểm thử hiệu năng và kiểm thử chấp nhận người dùng.
+* **Production**: Môi trường vận hành chính thức phục vụ người dùng cuối.
+
+Mỗi lần chuyển từ một môi trường sang môi trường tiếp theo đều cần trải qua các bước kiểm thử, đánh giá chất lượng và phê duyệt trước khi được triển khai.
+
+---
+
+## 📌 Ghi chú
+
+Repository này lựa chọn mô hình triển khai đơn giản hơn nhằm tập trung vào việc nghiên cứu và trình diễn các công nghệ **GitOps**, **ArgoCD**, **Kustomize**, **Helm** và hệ sinh thái **DevSecOps**. Đối với các dự án doanh nghiệp quy mô lớn, nên kết hợp thêm chiến lược quản lý nhánh, quy trình phát hành và mô hình promotion giữa các môi trường để đảm bảo tính ổn định, khả năng truy vết và chất lượng phần mềm.
