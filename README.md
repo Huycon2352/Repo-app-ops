@@ -329,6 +329,9 @@ cd helm-tools/monitoring-stack
 ./setup.sh
 ```
 
+```bash
+Tương tự với các Tools khác .....
+```
 ---
 
 ## 3. Kích hoạt GitOps bằng ArgoCD
