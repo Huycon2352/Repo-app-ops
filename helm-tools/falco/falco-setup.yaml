@@ -10,7 +10,7 @@
   #--reuse-values \
   #--createnamespace \
   #--set falcosidekick.enabled=true \
-  #--set falcosidekick.config.discord.webhookurl="https://discord.com/api/webhooks/1515414420992561334/mNdYkGh65Kc-h3HbuMeuRtjYE1caEBcff0sYEeW-90Kbeb-oWGHmB5P9cJ2_L1b17fhv" \
+  #--set falcosidekick.config.discord.webhookurl="https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
   #--set falcosidekick.config.discord.minimumpriority="notice"
   
 
@@ -19,7 +19,7 @@
   #--namespace falco \
   #--reuse-values \
   #--set falcosidekick.enabled=true \
-  #--set falcosidekick.config.discord.webhookurl="https://discord.com/api/webhooks/1515414420992561334/mNdYkGh65Kc-h3HbuMeuRtjYE1caEBcff0sYEeW-90Kbeb-oWGHmB5P9cJ2_L1b17fhv" \
+  #--set falcosidekick.config.discord.webhookurl="https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
   #--set falcosidekick.config.discord.minimumpriority="warning"
   
   #!/bin/bash
