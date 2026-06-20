@@ -8,7 +8,7 @@ policyReporter:
       - name: discord-alerts
         type: discord
         # Dán link Webhook Discord của bạn vào đây
-        webhook: "https://discord.com/api/webhooks/1515414420992561334/mNdYkGh65Kc-h3HbuMeuRtjYE1caEBcff0sYEeW-90Kbeb-oWGHmB5P9cJ2_L1b17fhv"
+        webhook: "https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         # Bắn thông báo khi có chính sách ở trạng thái Cảnh báo (warn) hoặc Thất bại (fail)
         minimumPriority: "warning"
         # Định dạng thông báo gửi đi (để trống hoặc "v2")
