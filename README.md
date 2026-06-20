@@ -235,7 +235,7 @@ Một số chính sách tiêu biểu:
 
 - Cấm chạy container privileged
 - Kiểm soát securityContext
-- Audit và Enforce policy
+- Audit và Enforce policy ( 
 - Kiểm soát cấu hình Kubernetes trước khi deploy
 
 ---
@@ -281,7 +281,7 @@ Chức năng:
 
 ---
 
-# 📂 Thư mục `config-setup/`
+# 📂 Thư mục `config-setup/` ( Dev,Local Only )
 
 Chứa các script khởi tạo cấu hình ban đầu trước khi triển khai GitOps.
 
